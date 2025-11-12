@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv/config';
+import 'dotenv/config';
 import connectDB from './configs/mongodb.js';
 import { clerkwebhooks } from './controllers/webhooks.js';
 
