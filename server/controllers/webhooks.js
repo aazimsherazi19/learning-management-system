@@ -80,10 +80,10 @@ const sig = request.headers['stripe-signature'];
       const {purchaseId}  = session.data[0].metadata;
 
       const purchaseData = await Purchase.findById(purchaseId);
-      const userData = await User.findById(purchaseData._id);
+      const userData = await User.findById(purchaseData.userId);
       const courseData = await Course.findById(purchaseData.courseId.toString());
 
-      courseData.enrolledStudents.push(userData);
+      courseData.enrolledStudents.push(userData._id);
       await courseData.save();
 
       userData.enrolledCourses.push(courseData._id);
