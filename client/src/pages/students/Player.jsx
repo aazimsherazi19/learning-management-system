@@ -20,17 +20,16 @@ const Player = () => {
 
   const {courseId} = useParams();
 
-  const extractYouTubeId = (url) => {
+const extractYouTubeId = (url) => {
   try {
-    if (url.includes('youtu.be')) {
-      return url.split('/').pop();
-    }
-    const params = new URLSearchParams(url.split('?')[1]);
-    return params.get('v');
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
   } catch {
-    return '';
+    return null;
   }
 };
+
 
 
   const getCourseData = ()=> {
@@ -166,7 +165,10 @@ const Player = () => {
           <div className='md:mt-10'>
             <YouTube 
             videoId={extractYouTubeId(playerData.lectureUrl)}
-            // videoId={playerData.lectureUrl.split('/').pop()} 
+            opts={{playerVars: {
+              autoplay: 1
+            }}}
+
            iframeClassName='w-full aspect-video'/>
            <div className='flex items-center justify-between mt-1'>
             <p>{playerData.chapter}.{playerData.lecture} {playerData.lectureTitle}</p>

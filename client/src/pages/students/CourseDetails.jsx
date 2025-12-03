@@ -54,6 +54,17 @@ const CourseDetails = () => {
       toast.error(error.message);
     }
   }
+
+  const extractYouTubeId = (url) => {
+  try {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  } catch {
+    return null;
+  }
+};
+
   useEffect(()=>{
    fetchCourseData();
   },[]);
@@ -121,7 +132,7 @@ const CourseDetails = () => {
                           <div className='flex gap-2'>
                             {lecture.isPreviewFree && <p 
                             onClick={()=> setPlayerData({
-                              videoId : lecture.lectureUrl.split('/').pop(),
+                              videoId: extractYouTubeId(lecture.lectureUrl),
                             })}
                             className='text-blue-500 cursor-pointer'>Preview</p>}
                             <p>{humanizeDuration(lecture.lectureDuration * 60 * 1000, {units: ['h', 'm']})}</p>

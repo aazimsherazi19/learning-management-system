@@ -229,7 +229,7 @@ const AddCourse = () => {
                     <p>Duration (minutes)</p>
                     <input type="text"
                     value={lectureDetails.lectureDuration}
-                    onChange={(e)=> setLectureDetails({... lectureDetails, lectureDuration: e.target.value})}
+                    onChange={(e)=> setLectureDetails({... lectureDetails, lectureDuration: Number(e.target.value)})}
                     className='mt-1 block w-full rounded border py-1 px-2'
                     />
                   </div>
