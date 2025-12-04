@@ -1,111 +1,88 @@
-🎓 Learning Management System (LMS)
+# 🎓 Learning-management-system(LMS) 
 
 
+A **full-stack Learning Management System (LMS)** built using the MERN stack.
+It includes **Clerk authentication, course enrollment, video lectures, educator dashboard, progress tracking, and Stripe payment integration**.
+
+---
+
+## 📸 Screenshots
+
+![Home Page](./screenshots/homepage.png)  
+![Product Page](./screenshots/productpage.png)  
+![Cart Page](./screenshots/cart.png)  
+![Admin Panel](./screenshots/adminpanel_addItem.png)
+
+---
+
+### ✨ Features
+## 👨‍🎓 For Students
+
+- 🔐 Login & Signup using Clerk Authentication
+- 🌐 Browse all published courses
+- 💳 Enroll in any course using Stripe Checkout
+- 🎬 Watch video lectures
+- ✔ Mark lectures as complete
+- 📊 Track course progress with a progress bar
+- ⭐ Rate & review courses
+- 📁 View purchased courses inside My Enrollments
+- 📱 Fully responsive UI
 
 
+## 👨‍🏫 For Educators
 
+- 🧑‍🏫 Any user can click Become Educator
+  → This updates Clerk public metadata to role="educator"
+- 📚 Upload new courses
+- 🎥 Add lectures (title, description, video URL)
 
+# 📈 Educator Dashboard shows:
 
+- Total uploaded courses
+- Total enrolled students
+- Total earnings
+- 🧾 View enrolled students
+- 🛠️ Edit or delete courses
+- 💳 Stripe Payment Flow
+- Student clicks Enroll
+- Stripe Checkout opens
 
+# On successful payment:
 
+- Enrollment record is created
+- Course gets mapped to the student
+- Lecture progress initializes
+- Student gets instant access
 
+---
 
+## 🛠️ Tech Stack
 
-A full-stack Learning Management System built with MERN Stack, Clerk Authentication & Stripe Payments.
-This LMS includes course enrollment, instructor dashboard, progress tracking, dedicated student area, and course creation tools.
+| Layer        | Technology |
+|--------------|------------|
+| **Frontend** | React, Tailwind CSS |
+| **Backend**  | Node.js, Express |
+| **Database** | MongoDB (Mongoose) |
+| **Auth**     | Clerk Authentication (No JWT)|
+| **Payments** | Stripe Checkout |
+| **Other**    | REST API, dotenv, Cloudinary, etc. |
 
-📸 Screenshots
+---
 
-Replace with real screenshots:
+## 📂 Project Structure
 
+```
 
-
-
-
-
-
-
-
-
-
-
-✨ Features
-👨‍🎓 For Students
-
-🔐 Login & Signup using Clerk Authentication
-
-🌐 Browse all published courses
-
-💳 Secure Stripe Checkout for enrollment
-
-🎬 Watch video lectures
-
-✔ Mark lectures as complete
-
-📊 Progress tracking with completion bar
-
-⭐ Rate & Review courses
-
-📁 My Enrollments section
-
-📱 Fully responsive UI
-
-👨‍🏫 For Educators
-
-🧑‍🏫 Any user can become educator using Become Educator button
-→ This sets role="educator" in Clerk public metadata
-
-📚 Upload new courses
-
-🎥 Add lectures with title, description, video URL
-
-📈 Educator Dashboard showing:
-
-Total courses uploaded
-
-Total students
-
-Total earnings
-
-🧾 See enrolled students
-
-🛠️ Edit or delete courses
-
-💳 Stripe Payment Flow
-
-Student buys a course
-
-Stripe Checkout opens
-
-On successful payment:
-
-Enrollment record created
-
-Course mapped to the user
-
-Progress initialized
-
-Student instantly gets full access
-
-🛠️ Tech Stack
-Layer	Technology
-Frontend	React, Tailwind CSS, React Router
-Backend	Node.js, Express
-Database	MongoDB + Mongoose
-Authentication	Clerk (No JWT)
-Payments	Stripe Checkout
-Other	Cloudinary, REST API, dotenv
-📂 Project Structure
 learning-management-system/
 │
-├── backend/
+├── server/               # Backend server / API
 │   ├── controllers/
 │   ├── models/
 │   ├── routes/
 │   ├── middlewares/
 │   └── server.js
 │
-├── frontend/
+├── client/               # React frontend
 │   ├── src/components/
 │   ├── src/pages/
 │   ├── src/context/
@@ -115,25 +92,29 @@ learning-management-system/
 ├── screenshots/
 ├── README.md
 └── .gitignore
+```
 
-🚀 Installation & Setup
-Prerequisites
+---
 
-Node.js installed
+## 🚀 Installation & Setup
 
-MongoDB (Atlas or local)
+### Prerequisites
 
-Clerk account configured
+- Node.js installed
+- MongoDB Atlas/local connection
+- Clerk dashboard configured
+- Stripe account
 
-Stripe account
-
-Backend Setup
+### Backend Setup
+```bash
 cd backend
 npm install
+```
 
 
-Create a .env file:
 
+Create `.env` file inside `server/`:
+```
 PORT=5000
 MONGO_URI=your_mongo_url
 STRIPE_SECRET_KEY=your_stripe_secret
@@ -146,46 +127,70 @@ CLOUDINARY_API_SECRET=your_cloud_secret
 
 
 Run backend:
-
+```bash
 npm run dev
+```
+Backend will run at → http://localhost:3000
 
-Frontend Setup
+### Frontend Setup
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
+Open your browser →  👉 'http://localhost:5173' 
 
-Open your browser →
-👉 http://localhost:5173
+---
 
-📡 API Endpoints
-Method	Route	Description
-GET	/api/courses/list	Get all published courses
-POST	/api/courses/upload	Upload a new course (educator only)
-POST	/api/payments/checkout	Create Stripe checkout session
-POST	/api/payments/verify	Verify Stripe payment
-GET	/api/enrollments/my-courses	Fetch enrolled courses
-POST	/api/progress/update	Update lecture progress
-🤝 Contributing
+## 📡 API Endpoints
 
-Contributions are always welcome!
+# 📌 User Routes
 
-Fork the repo
+| Method   | Route                              | Description                       |
+| -------- | ---------------------------------- | --------------------------------- |
+| **GET**  | `/api/user/data`                   | Get user data                     |
+| **GET**  | `/api/user/enrolled-courses`       | Get all enrolled courses          |
+| **POST** | `/api/user/purchase`               | Purchase a course                 |
+| **POST** | `/api/user/update-course-progress` | Update user’s course progress     |
+| **POST** | `/api/user/get-course-progress`    | Get progress of a specific course |
+| **POST** | `/api/user/add-rating`             | Add user rating to a course       |
 
-Create your feature branch
+# 🎓 Educator Routes
 
-Commit your changes
+| Method   | Route                             | Description                               |
+| -------- | --------------------------------- | ----------------------------------------- |
+| **POST** | `/api/educator/update-role`       | Update user role to educator              |
+| **POST** | `/api/educator/add-course`        | Add a new course (with thumbnail upload)  |
+| **GET**  | `/api/educator/my-courses`        | Get educator’s created courses            |
+| **GET**  | `/api/educator/dashboard-data`    | Get educator earnings + stats             |
+| **GET**  | `/api/educator/enrolled-students` | Get enrolled students with course details |
 
-Push to your branch
+# 📚 Course Routes
 
-Open a pull request
+| Method  | Route              | Description      |
+| ------- | ------------------ | ---------------- |
+| **GET** | `/api/courses/all` | Get all courses  |
+| **GET** | `/api/courses/:id` | Get course by ID |
 
-👤 Author
+---
 
-Aazim Sherazi
+## 🤝 Contributing
 
-GitHub: @aazimsherazi19
+Contributions are welcome!  
 
-Live App: https://learning-management-system-zeta-coral.vercel.app/
+1. Fork the repo  
+2. Create your branch (`git checkout -b feature/YourFeature`)  
+3. Commit changes (`git commit -m 'Add feature'`)  
+4. Push branch (`git push origin feature/YourFeature`)  
+5. Create a Pull Request  
 
-Repository: https://github.com/aazimsherazi19/learning-management-system
+---
+
+## 👤 Author
+
+**Aazim Sherazi**
+
+- GitHub: [@aazimsherazi19](https://github.com/aazimsherazi19)
+- Repository: [Learning management system](https://github.com/aazimsherazi19/learning-management-system)
+- Live App: [Learning management system](https://learning-management-system-zeta-coral.vercel.app/)  
