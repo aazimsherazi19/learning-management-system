@@ -6,12 +6,16 @@ It includes **Clerk authentication, course enrollment, video lectures, educator 
 
 ---
 
+
+
+
+
 ## 📸 Screenshots
 
-![Home Page](./screenshots/homepage.png)  
-![Product Page](./screenshots/productpage.png)  
-![Cart Page](./screenshots/cart.png)  
-![Admin Panel](./screenshots/adminpanel_addItem.png)
+![Home Page](./screenshots/Home.png)  
+![Course Detail Page](./screenshots/CourseDetail.png)  
+![Student Enrollments](./screenshots/Enrollments.png)  
+![Educator Dashboard](./screenshots/EducatorDashboard.png)
 
 ---
 
