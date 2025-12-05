@@ -15,7 +15,7 @@ It includes **Clerk authentication, course enrollment, video lectures, educator 
 
 ---
 
-### ✨ Features
+# ✨ Features
 ## 👨‍🎓 For Students
 
 - 🔐 Login & Signup using Clerk Authentication
@@ -36,7 +36,7 @@ It includes **Clerk authentication, course enrollment, video lectures, educator 
 - 📚 Upload new courses
 - 🎥 Add lectures (title, description, video URL)
 
-# 📈 Educator Dashboard shows:
+### 📈 Educator Dashboard shows:
 
 - Total uploaded courses
 - Total enrolled students
@@ -47,7 +47,7 @@ It includes **Clerk authentication, course enrollment, video lectures, educator 
 - Student clicks Enroll
 - Stripe Checkout opens
 
-# On successful payment:
+### On successful payment:
 
 - Enrollment record is created
 - Course gets mapped to the student
@@ -145,7 +145,7 @@ Open your browser →  👉 'http://localhost:5173'
 
 ## 📡 API Endpoints
 
-# 📌 User Routes
+### 📌 User Routes
 
 | Method   | Route                              | Description                       |
 | -------- | ---------------------------------- | --------------------------------- |
@@ -156,7 +156,7 @@ Open your browser →  👉 'http://localhost:5173'
 | **POST** | `/api/user/get-course-progress`    | Get progress of a specific course |
 | **POST** | `/api/user/add-rating`             | Add user rating to a course       |
 
-# 🎓 Educator Routes
+### 🎓 Educator Routes
 
 | Method   | Route                             | Description                               |
 | -------- | --------------------------------- | ----------------------------------------- |
@@ -166,7 +166,7 @@ Open your browser →  👉 'http://localhost:5173'
 | **GET**  | `/api/educator/dashboard-data`    | Get educator earnings + stats             |
 | **GET**  | `/api/educator/enrolled-students` | Get enrolled students with course details |
 
-# 📚 Course Routes
+### 📚 Course Routes
 
 | Method  | Route              | Description      |
 | ------- | ------------------ | ---------------- |
